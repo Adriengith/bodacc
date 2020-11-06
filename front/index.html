@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Stage BODACC</title>
+<!--
+Reflux Template
+https://templatemo.com/tm-531-reflux
+-->
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="author-content">
+              <h4>Stage BODACC</h4>
+              <span>(Bulletin officiel des annonces civiles et commerciales)<br><br>par <strong>Adrien</strong> et <strong>Steeven</strong></span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="#section0">Objectifs stage</a></li>
+                <li><a href="#section1">Etude du projet et organisation</a></li>
+                <li><a href="#section2">Script / BDD</a></li>
+                <li><a href="#section3">Des chiffres</a></li>
+                <li><a href="#section4">Folium Map</a></li>
+                <li><a href="#section5">Highchart</a></li>
+                <li><a href="#section6">Problèmes rencontrés</a></li>
+                <li><a href="#section7">Mise en prod</a></li>
+              </ul>
+            </nav>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <!------------------------------------------------------------------------------------->
+      <section class="section about-me" data-section="section0">
+        <div class="container">
+          <div class="section-heading">
+            <h1>Objectifs stage</h1>
+            <div class="line-dec"></div>
+            <span
+              ><strong><br><br><br><br><h3>Récupérer certaines données concernant les transactions et les créations des entreprises référencées dans le bodacc.</h3></strong>
+              <br><br><br><br><br><h4>
+              -Recupérer les données sur toutes les années.<br><br>
+              -Récupérer des données supplémentaires pour chaque création et transaction en appellant une API.<br><br>
+              -Stocker ces données dans une base de données postgres.<br><br>
+              -Localiser les transactions sur une map folium
+            </h4></span
+            >
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+      <!------------------------------------------------------------------------------------->
+      <section class="section about-me" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Etude du projet et organisation</h2>
+            <div class="line-dec"></div>
+            <span
+            ></span
+            >
+          </div>
+
+
+          <div class="left-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-image"><br><br>
+                  <img src="assets/images/left-image.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="right-text">
+                  <p>
+                    <strong>-Documentation sur le Bodacc</strong><br>
+                    Etude de la documentation du Bodacc<br><br>
+                    
+                    <strong>-Téléchargement fichiers archives Bodacc</strong><br>
+                    Découverte : XML<br><br>
+                    
+                    <strong>-Documentation sur l'XML en python</strong><br>
+                    Quelle lib utiliser ? (lib:etree  module:lxml)<br>
+                    Quelles données récupérées ?<br><br>
+                    
+                    <strong>-Documentation sur l'API</strong><br>
+                    Quelle lib utiliser ? (libs:urllib.request & json)<br>
+                    Quelles données récupérées ?<br><br>
+                    
+                    <strong>-Documentation sur folium</strong><br>
+                    Comment l'utiliser ?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+      <!------------------------------------------------------------------------------------->
+      <section class="section about-me" data-section="section2">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Script / BDD</h2>
+            <div class="line-dec"></div>
+            <span
+            ></span
+            >
+          </div>
+
+
+
+          <div class="left-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-image">
+                  <img src="assets/images/script.png" alt="" />
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="right-text">
+                  <h4>Fonctionnement du script</h4>
+                  <p>
+                    Le script va chercher le siren des entreprises dans les XML pour ensuite appeler une API (API gouv) afin de récupérer toutes les données qui nous intéressent.<br>
+                    Si certaines données ne sont pas dans l'api, on va les chercher dans les xml puis on ajoute le tout dans notre db.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="right-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-text">
+                  <h4>Base de données</h4>
+
+                  <p>
+                    <strong>Mise en place d'une db postgres (4 tables) en local.</strong><br><br>
+                    -Système qui update ou remplace les données si elles existent déjà.<br>
+                    -Système qui sauvegarde la progression du script.<br>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="right-image">
+                  <img src="assets/images/schema_db.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+      </section>
+
+      <!------------------------------------------------------------------------------------->
+      <section class="section about-me" data-section="section3">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Des chiffres</h2>
+            <div class="line-dec"></div>
+            <span
+            ></span
+            >
+          </div>
+
+
+
+          <div class="left-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-image"><br>
+                  <img src="assets/images/data_transactions.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="right-text">
+                  <h4>Les données récupérées</h4>
+                  <p><br>
+                    -550.000 transactions récupérées en 72h.<br>(avec 830.000 entreprises et 570.000 adresses)<br><br>  
+                    -5.000.000 créations NON récupérées, script fonctionnel mais nécessite environ 720 heures soit 1 mois non stop.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="right-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-text">
+                  <h4>Les erreurs</h4>
+                  <p><br>
+                    Environ 6% des données sont non récupérables.<br><br>On les ajoute quand même à notre base de données mais on remplace les données manquantes par '-1' ou 'null' selon le type.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="right-image">
+                  <img src="assets/images/logs.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </section>
+
+
+
+      <!------------------------------------------------------------------------------------->
+      <section class="section my-work" data-section="section4">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Folium Map</h2>
+            <div class="line-dec"></div>
+            <span
+              ><br>(Cliquez sur la map pour la charger dans un nouvel onglet)</span
+            >
+          </div>
+          <div class="row">
+            <div class="isotope-wrapper">
+              <form class="isotope-toolbar">
+                <label
+                  ><input
+                    type="radio"
+                    data-type="*"
+                    checked=""
+                    name="isotope-filter"
+                  />
+                  <span>Tout (4)</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="Vendeurs"
+                    name="isotope-filter"
+                  />
+                  <span>Vendeurs (3)</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="Acheteurs"
+                    name="isotope-filter"
+                  />
+                  <span>Acheteurs (1)</span></label
+                >
+              </form>
+              <div class="isotope-box">
+
+
+                <div class="isotope-item" data-type="Vendeurs">
+                  <figure class="snip1321">
+                    <img
+                      src="graph/graph2.png"
+                      alt="sq-sample26"
+                    />
+                    <figcaption>
+                      <a
+                        href="graph/graph2_all_places_selled.html"
+						            target="_blank">
+                        <i class="fa fa-search"></i
+                      ></a>
+                      <h4>Top 1000 transactions de places<br>En France</h4>
+                      <span>(Cliquez sur la loupe pour voir la map)</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+
+
+
+                <div class="isotope-item" data-type="Vendeurs">
+                  <figure class="snip1321">
+                    <img
+                    src="graph/graph3.png"
+                    alt="sq-sample26"
+                    />
+                    <figcaption>
+                      <a
+                        href="graph/graph3_all_places_selled_by_departement.html"
+						            target="_blank">
+                        <i class="fa fa-search"></i
+                      ></a>
+                      <h4>Top 1000 transactions de places<br>A Bordeaux</h4>
+                      <span>(Cliquez sur la loupe pour voir la map)</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+
+
+
+
+                <div class="isotope-item" data-type="Vendeurs">
+                  <figure class="snip1321">
+                    <img
+                    src="graph/graph4.png"
+                    alt="sq-sample26"
+                    />
+                    <figcaption>
+                      <a
+                        href="graph/graph4_all_places_selled_by_date.html"
+						            target="_blank">
+                        <i class="fa fa-search"></i
+                      ></a>
+                      <h4>Top 1000 transactions de places<br>En France, en 2020</h4>
+                      <span>(Cliquez sur la loupe pour voir la map)</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+
+
+
+                <div class="isotope-item" data-type="Acheteurs">
+                  <figure class="snip1321">
+                    <img
+                    src="graph/graph1.png"
+                    alt="sq-sample26"
+                    />
+                    <figcaption>
+                      <a
+                        href="graph/graph1_all_buyer_group_by_transactions.html"
+						            target="_blank">
+                        <i class="fa fa-search"></i
+                      ></a>
+                      <h4>Top 1000 acheteurs<br>En France</h4>
+                      <span>(Cliquez sur la loupe pour voir la map)</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!------------------------------------------------------------------------------------->
+      <section class="section about-me" data-section="section5">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Highchart</h2>
+            <div class="line-dec"></div>
+            <br><br>
+            <figure class="highcharts-figure">
+              <div id="container"></div>
+            </figure>
+            <br>
+            <figure class="highcharts-figure">
+              <div id="container2"></div>
+            </figure>
+          </div>
+
+
+        </div>
+      </section>
+
+            
+      <!------------------------------------------------------------------------------------->
+      <section class="section about-me" data-section="section6">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Problèmes rencontrés</h2>
+            <div class="line-dec"></div>
+
+            
+          <div class="left-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-image"><br><br><br>
+                  <img src="assets/images/jackie.png" alt="" />
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="right-text">
+                  <p><br>
+                    -	Extractions d'un nombre au milieu d'une phrase dans le XML pour le stocker en integer. (price_cents)<br><br>
+                    -	Manque de précision sur certaines directives. <br>(ou manque de compréhension)<br><br>
+                    -	24h après le lancement final du script pour récupérer les transactions nous avons remarqué qu’il manquait la colonne date dans la table de transactions.<br><br>
+                    -	Trop de requêtes lancées à l'api gouv en trop peu de temps, bannissement 72h.<br><br>
+                    - Refactorisation attaquée beaucoup trop tard.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+        </div>
+      </section>
+
+
+
+      <!------------------------------------------------------------------------------------->
+      <section class="section about-me" data-section="section7">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Mise en prod</h2>
+            <div class="line-dec"></div><br><br><br>
+            <h4>Données XML</h4><br>
+            <span>
+              Nous avons téléchargé et décompressé toutes les archives du bodacc et gardé seulement les fichiers RCS-A et RCS-B :<br>
+              <a href="https://cdn-34.bayfiles.com/v0K1q1napb/c0824049-1604677218/BODACC_xml.zip" target="_blank"
+              download="index.html">Télécharger <strong>BODACC_XML</strong> (1,57 GO)</a><br>
+              Pour que le script fonctionne vous devrez mettre ce dossier BODACC_xml à côté du script.py<br><br><br><br>
+
+              <h4>Base de données</h4><br>
+              <span>
+                Les 550.000 transactions récupérées de 2008 à 2020 (avec les entreprises et adresses) :<br>
+                <a href="https://cdn-35.bayfiles.com/n8zfq4ncp0/a423f671-1604677477/database.zip" target="_blank"
+                download="index.html">Télécharger <strong>database.sql</strong> (59,7 MO)</a><br><br><br><br>
+
+
+              <h4>Github</h4><br>
+              Tout le reste du travail est sur github :<br>
+              <a href="https://github.com/Adriengith/BOODAC" target="_blank"
+              download="index.html"><strong>https://github.com/Adriengith/BOODAC</strong></a><br><br><br><br>
+
+
+
+                <h4>Script config</h4><br>
+                Lancez script.py pour démarer le script.<br>
+                A l'intérieur vous y trouverez quelques lignes de code pour le configurer :<br><br>
+                  <img src="assets/images/config.png" style="width: 400px;" /><br><br>
+                  <u>config_max_avis</u> :<br>Le nb max d'avis que le script vas faire avant de s'aretter et d'afficher les logs d'erreurs.<br><br>
+                  <u>config_activate_auto_restart_avis</u> :<br>Permet de sauvegarder la progression du script dans auto_restart_avis.txt en cas d'interruption.<br><br>
+                  <u>config_activate_api_gouv</u> :<br>Le désactiver permet de tester rapidement un grand nombre de données dans les XML.<br><br>
+                  <u>config_activate_creations</u> :<br>Permet de récupérer les créations en db (dans les tables creations, companies et places).<br><br>
+                  <u>config_activate_transactions</u> :<br>Permet de récupérer les transactions en db (dans les tables creations, companies et places).<br><br>
+                  <u>config_forder_name</u> :<br>Dossier dans lequel vous avez téléchargé BODACC_XML.<br><br>
+                  <u>config_str_error</u> :<br>Remplace la donnée str irrécupérable par ce que vous voulez.<br><br>
+                  <u>config_int_error</u> :<br>Remplace la donnée int irrécupérable par ce que vous voulez.<br><br>
+                  <u>config_date_error</u> :<br>Remplace la donnée date irrécupérable par ce que vous voulez.<br><br>
+
+                  <u>*La base de donnée se configure dans le fichier database.py</u>
+
+
+              </span
+            >
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+    </div>
+
+
+
+  
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+
+
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="assets/js/script.js"></script>
+
+
+  </body>
+</html>

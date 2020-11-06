@@ -1,0 +1,1 @@
+Avant de lancer le script, mettre tout les dossiers des années dans le dossier BODACC_xml
